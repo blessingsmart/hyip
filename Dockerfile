@@ -18,7 +18,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 # Install dependencies before copying application files
 COPY composer.json composer.lock /app/
-RUN composer install --optimize-autoloader
+RUN composer install --optimize-autoloader 
 
 # Copy application files
 COPY . /app
