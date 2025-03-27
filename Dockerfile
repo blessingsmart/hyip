@@ -15,6 +15,11 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+
+# Install dependencies before copying application files
+COPY composer.json composer.lock /app/
+RUN composer install --optimize-autoloader
+
 # Copy application files
 COPY . /app
 
