@@ -1,4 +1,4 @@
-FROM php:8.2-cli
+FROM php:8.2-fpm
 
 # Set working directory
 WORKDIR /app
@@ -22,7 +22,7 @@ COPY . /app
 RUN chmod +x ./serve
 
 # Expose default port
-EXPOSE 8000
+EXPOSE 10000
 
 # Default command
 CMD ["./serve"]
